@@ -1,1 +1,1 @@
-vim.keymap.set("n", "<leader>fw", vim.cmd.FloatermToggle)
+vim.keymap.set("n", "<Leader>fw", vim.cmd.FloatermToggle)
