@@ -56,12 +56,17 @@ return require('packer').startup(function(use)
       })
     end
   })
+  use 'voldikss/vim-floaterm'
   -- BAR BAR THE ELEPHANT
   -- use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
   -- sweet sweet formatting
-  -- use { 'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' } }
   use { 'mhartington/formatter.nvim' }
 
-  use 'voldikss/vim-floaterm'
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
 end)
