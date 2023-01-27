@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
   })
   use 'voldikss/vim-floaterm'
   -- BAR BAR THE ELEPHANT
-  -- use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
+  use { 'romgrk/barbar.nvim' }
 
   -- sweet sweet formatting
   use { 'mhartington/formatter.nvim' }
