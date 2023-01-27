@@ -42,12 +42,26 @@ return require('packer').startup(function(use)
       vim.cmd('colorscheme rose-pine')
     end
   })
+  -- Formatting stuff
   use {
     "windwp/nvim-autopairs",
     config = function() require("nvim-autopairs").setup {} end
   }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
+  })
+  -- BAR BAR THE ELEPHANT
+  -- use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
   -- sweet sweet formatting
-  use { 'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' } }
+  -- use { 'prettier/vim-prettier', { run = 'yarn install --frozen-lockfile --production' } }
   use { 'mhartington/formatter.nvim' }
+
+  use 'voldikss/vim-floaterm'
 end)
