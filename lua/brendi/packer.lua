@@ -10,8 +10,6 @@ return require('packer').startup(function(use)
   }
   use 'preservim/nerdtree'
 
-  use { "catppuccin/nvim", as = "catppuccin" }
-
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v1.x',
@@ -25,6 +23,7 @@ return require('packer').startup(function(use)
       { 'hrsh7th/cmp-nvim-lsp' },
       { 'hrsh7th/cmp-buffer' },
       { 'hrsh7th/cmp-path' },
+      { 'hrsh7th/cmp-nvim-lua' },
       -- Snippets
       { 'L3MON4D3/LuaSnip' }, -- Required
     }
@@ -73,7 +72,7 @@ return require('packer').startup(function(use)
   -- helix like diagnostics
   use { 'Mofiqul/trld.nvim' }
 
-  use 'simrat39/rust-tools.nvim'
+  -- use 'simrat39/rust-tools.nvim'
 
   use {
     'numToStr/Comment.nvim',
