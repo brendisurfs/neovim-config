@@ -10,14 +10,11 @@ local cmp_mappings = lsp.defaults.cmp_mappings {
   ['<C-space>'] = cmp.mapping.complete(),
 }
 
+
+
 local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
-vim.api.nvim_create_autocmd("CursorHold", {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focusable = false })
-  end,
-  group = diag_float_grp,
-})
-vim.opt.updatetime = 1500
+
+vim.opt.updatetime = 100
 
 
 lsp.set_preferences({
@@ -28,13 +25,12 @@ lsp.setup_nvim_cmp({
   mapping = cmp_mappings
 })
 
+
 cmp.setup({
   sources = {
-    { name = "nvim_lsp",
-      entry_filter = function(entry, ctx)
-        return cmp.lsp.CompletionItemKind.Text ~= entry:get_kind()
-      end },
+    { name = "nvim_lsp" },
   },
 })
+
 
 lsp.setup()

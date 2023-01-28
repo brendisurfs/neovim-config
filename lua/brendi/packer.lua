@@ -32,7 +32,14 @@ return require('packer').startup(function(use)
 
   -- Undo Stuff
   use { 'mbbill/undotree' }
-  use { 'nvim-treesitter/nvim-treesitter' }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('nvim-treesitter.configs').setup({
+        highlight = { enable = true }
+      })
+    end
+  }
 
   use({
     'rose-pine/neovim',
@@ -58,10 +65,15 @@ return require('packer').startup(function(use)
   })
   use 'voldikss/vim-floaterm'
   -- BAR BAR THE ELEPHANT
-  use { 'romgrk/barbar.nvim' }
+  use 'nvim-tree/nvim-web-devicons'
+  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
   -- sweet sweet formatting
   use { 'mhartington/formatter.nvim' }
+  -- helix like diagnostics
+  use { 'Mofiqul/trld.nvim' }
+
+  use 'simrat39/rust-tools.nvim'
 
   use {
     'numToStr/Comment.nvim',
