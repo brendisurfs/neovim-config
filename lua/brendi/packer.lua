@@ -57,22 +57,22 @@ return require('packer').startup(function(use)
     "kylechui/nvim-surround",
     tag = "*", -- Use for stability; omit to use `main` branch for the latest features
     config = function()
-      require("nvim-surround").setup({
-        -- Configuration here, or leave empty to use defaults
-      })
+      require("nvim-surround").setup({})
     end
   })
   use 'voldikss/vim-floaterm'
   -- BAR BAR THE ELEPHANT
   use 'nvim-tree/nvim-web-devicons'
   use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
-
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
   -- sweet sweet formatting
   use { 'mhartington/formatter.nvim' }
   -- helix like diagnostics
   use { 'Mofiqul/trld.nvim' }
 
-  -- use 'simrat39/rust-tools.nvim'
 
   use {
     'numToStr/Comment.nvim',
