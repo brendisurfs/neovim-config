@@ -13,7 +13,7 @@ set.undodir = vim.fn.expand('~/.vim/undodir')
 
 set.tabstop = 2
 set.scrolloff = 8
-set.shiftwidth = 4
+set.shiftwidth = 2
 set.softtabstop = 2
 set.updatetime = 50
 set.signcolumn = "yes"
