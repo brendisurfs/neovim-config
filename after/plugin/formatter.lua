@@ -1,10 +1,10 @@
 require("formatter").setup({
   filetype = {
     typescript = {
-      require("formatter.filetypes.typescript").prettierd,
+      require("formatter.filetypes.typescript").prettier,
     },
     typescriptreact = {
-      require("formatter.filetypes.typescriptreact").prettierd,
+      require("formatter.filetypes.typescriptreact").prettier,
     },
     lua = {
       require("formatter.filetypes.lua").stylua,
@@ -24,9 +24,11 @@ autocmd({ "BufWritePre" }, {
   group = "fmt",
   pattern = "*",
   callback = function()
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({ async = true })
   end
 })
+
+
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
