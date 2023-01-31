@@ -9,6 +9,7 @@ set.undofile = true
 set.hlsearch = false
 set.incsearch = true
 set.shortmess = 'c'
+set.swapfile = false
 -- set.smartindent = true
 set.undodir = vim.fn.expand("~/.vim/undodir")
 
