@@ -1,50 +1,35 @@
 local util = require("formatter.util")
-require("formatter").setup {
+require("formatter").setup({
   filetype = {
+    typescript = {
+      require("formatter.filetypes.typescript").prettierd,
+    },
     typescriptreact = {
-      require('formatter.filetypes.typescriptreact').prettierd,
+      require("formatter.filetypes.typescriptreact").prettierd,
     },
     lua = {
       require("formatter.filetypes.lua").stylua,
     },
     ["*"] = {
-      require("formatter.filetypes.any").remove_trailing_whitespace
-    }
-  }
-}
-
-vim.g.prettier = {
-  autoformat_config_present = 1,
-}
-
-local augroup = vim.api.nvim_create_augroup
-local FormatBrendi = augroup("Brendi", {})
-local autocmd = vim.api.nvim_create_autocmd
-
-autocmd({ 'BufWritePre' }, {
-  group = FormatBrendi,
-  pattern = "*",
-  command = "lua vim.lsp.buf.format()"
+      require("formatter.filetypes.any").remove_trailing_whitespace,
+    },
+  },
 })
 
-
--- autocmd({ "CursorHold" }, {
---   callback = function()
---     local curs = vim.fn.expand('<cword>')
---     local len_cword = curs:len()
---     local cursor = vim.api.nvim_win_get_cursor(0)
---     local line = cursor[1]
---     local start_cursor = cursor[2]
---     local end_cursor = start_cursor + len_cword
+local augroup = vim.api.nvim_create_augroup
+augroup("fmt", {})
+local autocmd = vim.api.nvim_create_autocmd
 --
---     local ns = vim.api.nvim_create_namespace("currentword")
---     vim.api.nvim_buf_add_highlight(0, ns, curs, line, start_cursor, end_cursor)
---
---     print(start_cursor, end_cursor)
---   end
--- })
-
+autocmd({ "BufWritePre" }, {
+  group = "fmt",
+  pattern = "*",
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end
+})
 -- Highlight on yank
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function() vim.highlight.on_yank() end
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
