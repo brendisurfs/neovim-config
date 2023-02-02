@@ -79,7 +79,13 @@ return require("packer").startup(function(use)
 	-- helix like diagnostics
 	use({ "Mofiqul/trld.nvim" })
 	use({ "prettier/vim-prettier" })
-
+	use("lukas-reineke/indent-blankline.nvim")
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	})
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
