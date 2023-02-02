@@ -11,9 +11,9 @@ set.hlsearch = false
 set.incsearch = true
 set.swapfile = false
 
-set.tabstop = 2
+set.tabstop = 4
 set.scrolloff = 8
-set.shiftwidth = 2
+set.shiftwidth = 4
 set.softtabstop = 0
 set.expandtab = true
 set.updatetime = 50
