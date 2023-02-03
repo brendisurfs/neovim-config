@@ -7,6 +7,9 @@ vim.g.coq_settings = {
     },
     ["match"] = {
         ["exact_matches"] = 3,
+    },
+    ["completion"] = {
+        ["replace_prefix_threshold"] = 4,
     }
 }
 local coq = require("coq")
@@ -26,27 +29,26 @@ local servers = lsp.get_installed_servers()
 
 
 
-for _, server_name in pairs(servers) do
-    -- if server_name == "rust_analyzer" then
-    --     lspconfig["rust_analyzer"].setup({
-    --         capabilities = {
-    --             textDocument = {
-    --                 completion = {
-    --                     completionItem = {
-    --                         snippetSupport = false,
-    --                     },
-    --                 },
-    --             },
-    --         },
-    --     })
-    -- end
+-- for _, server_name in pairs(servers) do
+--     if server_name == "rust_analyzer" then
+--         lspconfig["rust_analyzer"].setup({
+--             capabilities = {
+--                 textDocument = {
+--                     completion = {
+--                         completionItem = {
+--                             snippetSupport = false,
+--                         },
+--                     },
+--                 },
+--             },
+--         })
+--     end
+--     lspconfig[server_name].setup(coq.lsp_ensure_capabilities({
+--         on_attach = require('lsp-format').on_attach,
+--         capabilities = lsp_capabilities,
+--     }))
+-- end
 
-
-    lspconfig[server_name].setup(coq.lsp_ensure_capabilities({
-        on_attach = require('lsp-format').on_attach,
-        capabilities = lsp_capabilities,
-    }))
-end
 vim.diagnostic.config({
     virtual_text = false,
 })
