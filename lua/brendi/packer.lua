@@ -7,9 +7,11 @@ return require("packer").startup(function(use)
     use({
         "nvim-telescope/telescope.nvim",
         tag = "0.1.1",
-        requires = { { "nvim-lua/plenary.nvim" } },
+        requires = { "nvim-lua/plenary.nvim" },
     })
     use("preservim/nerdtree")
+    use {"ms-jpq/coq_nvim"}
+
 
     -- lua vim.api integration
     use("folke/neodev.nvim")
@@ -43,7 +45,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-
     use({
         "rose-pine/neovim",
         as = "rose-pine",
@@ -75,21 +76,18 @@ return require("packer").startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true },
     })
 
-    -- sweet sweet formatting
-    use({ "mhartington/formatter.nvim" })
     -- helix like diagnostics
     use({ "Mofiqul/trld.nvim" })
-    use({ "prettier/vim-prettier" })
     use("lukas-reineke/indent-blankline.nvim")
     use "lukas-reineke/lsp-format.nvim"
-    -- init.lua
-    use({
-        "lewis6991/gitsigns.nvim",
-    })
+    use({ "lewis6991/gitsigns.nvim" })
     use({
         "numToStr/Comment.nvim",
         config = function()
             require("Comment").setup()
         end,
     })
+
+    -- use({ "mhartington/formatter.nvim" })
+    -- use "jose-elias-alvarez/null-ls.nvim"
 end)
