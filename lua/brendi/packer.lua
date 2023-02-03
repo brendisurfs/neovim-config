@@ -10,7 +10,6 @@ return require("packer").startup(function(use)
         requires = { "nvim-lua/plenary.nvim" },
     })
     use("preservim/nerdtree")
-    use { "ms-jpq/coq_nvim" }
 
     -- lua vim.api integration
     use("folke/neodev.nvim")
