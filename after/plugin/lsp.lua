@@ -35,10 +35,24 @@ vim.diagnostic.config({
 
 local cmp = require("cmp")
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+local handlers = require("nvim-autopairs.completion.handlers")
+
 local cmp_select = { behavior = cmp.SelectBehavior.Insert }
 vim.opt.updatetime = 100
 
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({
+    filetypes = {
+        ["*"] = {
+            ["<"] = {
+                kind = {
+                    cmp.lsp.CompletionItemKind.Method,
+                    cmp.lsp.CompletionItemKind.Function,
+                },
+                handler = handlers["*"],
+            }
+        }
+    }
+}))
 
 cmp.setup({
     snippet = {
