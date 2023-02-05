@@ -64,7 +64,7 @@ cmp.setup({
 --- EFM for formatting
 
 require("lsp-format").setup {
-    sync = false
+    sync = true,
 }
 local prettier = {
     formatCommand = [[prettier --stdin-filepath ${INPUT}]],
@@ -77,6 +77,7 @@ require("lspconfig").efm.setup {
     settings = {
         languages = {
             typescriptreact = { prettier },
+            typescript = { prettier },
             json = { prettier },
             css = { prettier },
         }
