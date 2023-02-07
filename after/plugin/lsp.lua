@@ -78,11 +78,16 @@ cmp.setup({
 --- EFM for formatting
 
 require("lsp-format").setup {
-    sync = true,
+    sync = false,
 }
+
 local prettier = {
     formatCommand = [[prettier --stdin-filepath ${INPUT}]],
     formatStdin = true
+}
+
+local taplo = {
+    formatCommand = [[taplo fmt --]]
 }
 
 require("lspconfig").efm.setup {
