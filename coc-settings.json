@@ -1,0 +1,28 @@
+{
+	"coc.preferences.formatOnType": true,
+	"coc.preferences.formatOnSave": true,
+	"prettier.useEditorConfig": true,
+	"prettier.tabWidth": 2,
+	"prettier.useTabs": true,
+	"inlayHint.enable": false,
+	"suggest.virtualText": false,
+	"notification.timeout": 10000,
+	"diagnostic.virtualText": false,
+	"tailwindCSS.jsLanguages": [
+		"javascript",
+		"javascriptreact",
+		"reason",
+		"typescriptreact"
+	],
+	"tailwindCSS.headwind.runOnSave": false,
+	"rust-analyzer.check.overrideCommand": [
+		"cargo",
+		"clippy",
+		"--workspace",
+		"--message-format=json",
+		"--all-targets",
+		"--all-features"
+	],
+	"rust-analyzer.checkOnSave": true,
+	"coc.source.fish.enable": true
+}
