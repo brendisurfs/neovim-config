@@ -2,27 +2,41 @@
 	"coc.preferences.formatOnType": true,
 	"coc.preferences.formatOnSave": true,
 	"prettier.useEditorConfig": true,
+	"prettier.enable": true,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": true,
 	"inlayHint.enable": false,
 	"suggest.virtualText": false,
+	"diagnostic.messageDelay": 1500,
 	"notification.timeout": 10000,
-	"diagnostic.virtualText": false,
+	"tailwindCSS.cssLanguages": [
+		"css",
+		"less",
+		"postcss",
+		"sass",
+		"scss",
+		"stylus",
+		"vue"
+	],
 	"tailwindCSS.jsLanguages": [
 		"javascript",
 		"javascriptreact",
 		"reason",
 		"typescriptreact"
 	],
+	"diagnostic.virtualText": false,
 	"tailwindCSS.headwind.runOnSave": false,
+	"rome.enable": false,
+	"coc.preferences.formatOnSaveTimeout": 500,
+	"rome.bin": "/Users/brendi/.volta/bin/rome",
 	"rust-analyzer.check.overrideCommand": [
 		"cargo",
 		"clippy",
-		"--workspace",
 		"--message-format=json",
 		"--all-targets",
 		"--all-features"
 	],
+	"coc.source.fish.enable": true,
 	"rust-analyzer.checkOnSave": true,
-	"coc.source.fish.enable": true
+	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer"
 }
