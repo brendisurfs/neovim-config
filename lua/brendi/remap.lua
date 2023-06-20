@@ -20,7 +20,6 @@ vim.keymap.set("n", "<c-k>", vim.lsp.buf.signature_help, opts)
 
 
 -- barbar remap.
-
 map("n", "≤", "<A-,>", opts)
 map("n", "≥", "<A-.>", opts)
 map("n", "ç", "<A-c>", opts)
@@ -60,3 +59,4 @@ map('n', '<Space>bb', '<Cmd>BufferOrderByBufferNumber<CR>', opts)
 map('n', '<Space>bd', '<Cmd>BufferOrderByDirectory<CR>', opts)
 map('n', '<Space>bl', '<Cmd>BufferOrderByLanguage<CR>', opts)
 map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
+map("n", "<leader>mt", ":MinimapToggle<CR>", opts)

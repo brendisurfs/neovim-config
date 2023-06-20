@@ -20,3 +20,6 @@ set.updatetime = 50
 set.signcolumn = "yes"
 set.termguicolors = true
 set.undodir = vim.fn.expand("~/.vim/undodir")
+
+-- leptosfmt command for formatting leptos code
+vim.api.nvim_create_user_command("LeptosFmt", "!leptosfmt .", {})

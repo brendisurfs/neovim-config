@@ -32,3 +32,24 @@ keyset("i", "<C-f>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-
 
 vim.cmd [[ nnoremap<silent> gh :call CocActionAsync('doHover', 'float')<CR> ]]
 -- keyset("n", "gh", vim.fn.CocActionAsync('doHover'), opts)
+
+-- codeaction
+keyset("n", "<leader>re", "<Plug>(coc-codeaction-refactor)", { silent = true })
+keyset("x", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+keyset("n", "<leader>r", "<Plug>(coc-codeaction-refactor-selected)", { silent = true })
+-- Symbol renaming
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })
+
+
+-- Apply codeAction to the selected region
+-- Example: `<leader>aap` for current paragraph
+keyset("x", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+keyset("n", "<leader>a", "<Plug>(coc-codeaction-selected)", opts)
+
+
+-- Highlight the symbol and its references on a CursorHold event(cursor is idle)
+vim.api.nvim_create_augroup("CocGroup", {})
+vim.api.nvim_create_autocmd("CursorHold", {
+    group = "CocGroup",
+    command = "silent call CocActionAsync('highlight')",
+})

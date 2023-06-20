@@ -1,42 +1,54 @@
 {
-	"coc.preferences.formatOnType": true,
+	"coc.preferences.formatOnType": false,
 	"coc.preferences.formatOnSave": true,
 	"prettier.useEditorConfig": true,
 	"prettier.enable": true,
+	"eslint.enable": true,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": true,
 	"inlayHint.enable": false,
 	"suggest.virtualText": false,
-	"diagnostic.messageDelay": 1500,
+	"diagnostic.enableHighlightLineNumber": true,
+	"diagnostic.messageDelay": 700,
 	"notification.timeout": 10000,
-	"tailwindCSS.cssLanguages": [
-		"css",
-		"less",
-		"postcss",
-		"sass",
-		"scss",
-		"stylus",
-		"vue"
-	],
-	"tailwindCSS.jsLanguages": [
-		"javascript",
-		"javascriptreact",
-		"reason",
-		"typescriptreact"
-	],
+	"rome.enable": false,
 	"diagnostic.virtualText": false,
 	"tailwindCSS.headwind.runOnSave": false,
-	"rome.enable": false,
 	"coc.preferences.formatOnSaveTimeout": 500,
-	"rome.bin": "/Users/brendi/.volta/bin/rome",
+
+	"rust-analyzer.procMacro.enable": true,
+	"rust-analyzer.procMacro.attributes.enable": true,
 	"rust-analyzer.check.overrideCommand": [
 		"cargo",
 		"clippy",
 		"--message-format=json",
-		"--all-targets",
-		"--all-features"
+		"--",
+		"--no-deps"
 	],
 	"coc.source.fish.enable": true,
+	"rome.bin": "/Users/brendi/.volta/bin/rome",
+
 	"rust-analyzer.checkOnSave": true,
-	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer"
+	"rust-analyzer.files.watcher": "server",
+	"rust-analyzer.imports.merge.glob": true,
+	"rust-analyzer.imports.group.enable": true,
+	"rust-analyzer.hover.documentation.enable": true,
+	"rust-analyzer.imports.granularity.group": "preserve",
+	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
+	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
+
+	"pyright.enable": true,
+	"python.linting.pylintArgs": ["--generate-members=cv2.*"],
+
+	"languageserver": {
+		"glsl": {
+			"command": "glslls",
+			"args": ["--stdin"],
+			"filetypes": ["glsl", "frag", "vert"]
+		},
+		"wgsl": {
+			"command": "wgsl_analyzer",
+			"filetypes": ["wgsl"]
+		}
+	}
 }
