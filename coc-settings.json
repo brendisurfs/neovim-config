@@ -4,6 +4,7 @@
 	"prettier.useEditorConfig": true,
 	"prettier.enable": true,
 	"eslint.enable": true,
+	"eslint.autoFixOnSave": true,
 	"prettier.tabWidth": 2,
 	"prettier.useTabs": true,
 	"inlayHint.enable": false,
@@ -14,6 +15,13 @@
 	"rome.enable": false,
 	"diagnostic.virtualText": false,
 	"tailwindCSS.headwind.runOnSave": false,
+	"tailwindCSS.enable": true,
+	"tailwindCSS.files.exclude": [
+		"**/.git/**",
+		"**/node_modules/**",
+		"**/.hg/**",
+		"**/.svn/**"
+	],
 	"coc.preferences.formatOnSaveTimeout": 500,
 
 	"rust-analyzer.procMacro.enable": true,
@@ -28,6 +36,7 @@
 	"coc.source.fish.enable": true,
 	"rome.bin": "/Users/brendi/.volta/bin/rome",
 
+	"rust-analyzer.lens.enable": true,
 	"rust-analyzer.checkOnSave": true,
 	"rust-analyzer.files.watcher": "server",
 	"rust-analyzer.imports.merge.glob": true,
@@ -38,9 +47,43 @@
 	"rust-analyzer.diagnostics.disabled": ["unresolved-proc-macro"],
 
 	"pyright.enable": true,
+	"pyright.inlayHints.functionReturnTypes": true,
+	"python.analysis.autoImportCompletions": true,
+	"python.formatting.blackArgs": ["-q", "-l 80"],
+	"python.analysis.diagnosticSeverityOverrides": {
+		"reportUnknownVariableType": "warning",
+		"reportUnknownParameterType": "warning",
+		"reportUnusedVariable": "error",
+		"reportUnknownArgumentType": "warning",
+		"reportUnknownMemberType": "information",
+		"reportUnusedImport": "warning"
+	},
+
+	"python.formatting.provider": "black",
 	"python.linting.pylintArgs": ["--generate-members=cv2.*"],
+	"python.formatting.blackPath": "/opt/homebrew/bin/black",
+	"python.analysis.extraPaths": [
+		"/Applications/Houdini/Houdini19.5.682/Frameworks/Houdini.framework/Versions/19.5/Resources/houdini/python3.9libs",
+		"/Applications/Blender.app/Contents/Resources/3.5/scripts/addons",
+		"/Users/brendi/.pyenv/versions/3.10.6/lib/python3.10/site-packages"
+	],
+	"python.analysis.useLibraryCodeForTypes": true,
+	"python.analysis.indexing": true,
+	"pyright.completion.importSupport": true,
+	"python.analysis.typeCheckingMode": "basic",
 
 	"languageserver": {
+		"rescript": {
+			"enable": true,
+			"module": "/Users/brendi/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js",
+			"args": ["--node-ipc"],
+			"filetypes": ["rescript"],
+			"rootPatterns": ["bsconfig.json"]
+		},
+		"zig": {
+			"command": "/Users/brendi/Git/zls/zls",
+			"filetypes": ["zig"]
+		},
 		"glsl": {
 			"command": "glslls",
 			"args": ["--stdin"],

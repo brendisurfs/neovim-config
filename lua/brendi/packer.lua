@@ -25,23 +25,16 @@ return require("packer").startup(function(use)
         end,
     })
 
-    use({
-        "rose-pine/neovim",
-        as = "rose-pine",
-        config = function()
-            require("rose-pine").setup({
-                groups = {
-                    comment = 'love',
-                },
-                highlight_groups = {
-                    Comment = { fg = "love" },
-                    CocFadeOut = { fg = 'muted' }
-                }
-            })
-            vim.cmd("colorscheme rose-pine")
-        end,
+    -- ROSEPINE
+    use({ 'rose-pine/neovim', as = 'rose-pine' })
+    require("rose-pine").setup({
+        highlight_groups = {
+            Comment = { fg = "love" },
+            CocFadeOut = { fg = 'muted' }
+        }
     })
-    -- Formatting stuff
+    vim.cmd("colorscheme rose-pine")
+
     use({
         "windwp/nvim-autopairs",
         config = function()
@@ -55,7 +48,6 @@ return require("packer").startup(function(use)
             require("nvim-surround").setup({})
         end,
     })
-    -- use("voldikss/vim-floaterm")
     -- BAR BAR THE ELEPHANT
     use("nvim-tree/nvim-web-devicons")
     use({ "romgrk/barbar.nvim", wants = "nvim-web-devicons" })
@@ -66,11 +58,7 @@ return require("packer").startup(function(use)
 
     use { 'neoclide/coc.nvim', branch = 'release' }
 
-    -- minimap - not using right now.
-    -- use { 'wfxr/minimap.vim' }
 
-    -- helix like diagnostics
-    use({ "Mofiqul/trld.nvim" })
     use("lukas-reineke/indent-blankline.nvim")
     -- use "lukas-reineke/lsp-format.nvim"
     use({ "lewis6991/gitsigns.nvim" })
@@ -80,7 +68,6 @@ return require("packer").startup(function(use)
             require("Comment").setup()
         end,
     })
-
-    -- use({ "mhartington/formatter.nvim" })
-    -- use "jose-elias-alvarez/null-ls.nvim"
+    -- rescript
+    use 'rescript-lang/vim-rescript'
 end)
